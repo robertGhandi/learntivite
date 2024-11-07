@@ -9,7 +9,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: Arial, sans-serif;
+	font-family: sofia pro;
 }
 
 body {
@@ -24,13 +24,14 @@ body {
 	padding: 20px;
 	background-color: #ffffff;
 	border-bottom: 2px solid #e0e0e0;
+    width: auto;
 }
 
 .logo {
-	width: 169px;
+	width: 100px;
 	height: 40px;
 	top: 12px;
-	left: 11px;
+	left: 5px;
 }
 
 .nav-links {
@@ -39,7 +40,8 @@ body {
 }
 
 .nav-links li {
-	margin-left: 20px;
+	margin-left: 10px;
+    
 }
 
 .nav-links a {
@@ -50,30 +52,38 @@ body {
 	line-height: 24px;
 }
 
-.auth-links {
+.nav-actions {
 	display: flex;
+    align-items: center;
 	list-style: none;
-	padding-left: 70px;
+	gap: 15px;
 }
 
-.auth-links button {
-	margin-left: 15px;
-	padding: 8px 20px;
-	border-radius: 20px;
-	border: none;
-	cursor: pointer;
-	font-weight: bold;
+.nav-app, .nav-language {
+    font-size: 0.9rem;
+    color: #333;
+    text-decoration: none;
 }
 
-.sign-in {
+
+.nav-actions .sign-in {
 	background: none;
-	color: #5d5fef;
-	border: 1px solid #5d5fef;
+	color: #333;
+    border-radius: 15px;
+    padding: 8px 15px;
+	border: 1px solid #333;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.create-account {
+.nav-actions .create-account {
 	background-color: #5d5fef;
 	color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 15px;
+    border: 1px solid #5d5fef;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .hero {
