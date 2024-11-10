@@ -6,7 +6,7 @@ async function fetchWeather() {
 
 	try {
 		const response = await fetch(apiUrl);
-		const data = response.data;
+		const data = await response.json();
 
 		// Display current weather
 		document.getElementById("current-weather").innerHTML = `
