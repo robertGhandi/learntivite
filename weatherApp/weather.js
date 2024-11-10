@@ -1,0 +1,47 @@
+
+	
+
+async function fetchWeather() {
+    require("dotenv").config();
+    const axios = require("axios");
+
+	const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+	const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${WEATHER_API_KEY}&q=${city}&days=3`;
+    const city = document.getElementById("city-input").value;
+
+	try {
+		const response = await axios.get(apiUrl);
+		const data = response.data;
+
+		// Display current weather
+		document.getElementById("current-weather").innerHTML = `
+        <h2>${data.location.name}</h2>
+        <p>${data.current.temp_c}°C, ${data.current.condition.text}</p>
+        <img src="https:${data.current.condition.icon}" alt="Weather icon">
+      `;
+
+		// Display 3-day forecast
+		const forecastHtml = data.forecast.forecastday
+			.map(
+				(day) => `
+        <div class="forecast-item">
+          <h4>${new Date(day.date).toLocaleDateString("en-US", {
+				weekday: "short",
+			})}</h4>
+          <p>${day.day.avgtemp_c}°C</p>
+          <img src="https:${day.day.condition.icon}" alt="Weather icon">
+        </div>
+      `
+			)
+			.join("");
+		document.getElementById("forecast").innerHTML = forecastHtml;
+	} catch (error) {
+		alert("City not found or API error");
+		console.error(error);
+	}
+};
+
+fetchWeather();
+
+
+
