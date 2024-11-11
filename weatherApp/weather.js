@@ -30,6 +30,8 @@ async function fetchWeather() {
 			)
 			.join("");
 		document.getElementById("forecast").innerHTML = forecastHtml;
+
+        
 	} catch (error) {
 		alert("City not found or API error");
 		console.error(error);
