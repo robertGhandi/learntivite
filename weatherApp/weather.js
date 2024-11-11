@@ -7,11 +7,11 @@ async function fetchWeather() {
 	try {
 		const response = await fetch(apiUrl);
 		const data = await response.json();
-
+        console.log(data);
 		// Display current weather
 		document.getElementById("current-weather").innerHTML = `
         <h2>${data.location.name}</h2>
-        <p>${data.current.temp_c}°C, ${data.current.condition.text}</p>
+        <p>${data.current.temp_c}°C</p>
         <img src="https:${data.current.condition.icon}" alt="Weather icon">
       `;
 
